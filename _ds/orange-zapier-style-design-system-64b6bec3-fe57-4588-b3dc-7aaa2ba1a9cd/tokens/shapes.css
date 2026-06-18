@@ -1,0 +1,31 @@
+/* ============================================================
+   Shapes & Elevation  —  Orange (Zapier-style)
+   12px is the brand's canonical button + card radius.
+   Elevation is carried by surface contrast + hairline ink
+   borders, NOT by heavy drop shadows.
+   ============================================================ */
+
+:root {
+  /* --- Border radius --------------------------------------- */
+  --radius-none: 0px;
+  --radius-sm: 6px;     /* inline pills, form inputs */
+  --radius-md: 12px;    /* canonical button + card radius */
+  --radius-pill: 9999px;
+  --radius-full: 9999px;
+
+  /* --- Border widths --------------------------------------- */
+  --border-hairline: 1px solid var(--color-border);
+  --border-soft: 1px solid var(--color-border-soft);
+
+  /* --- Elevation -------------------------------------------
+     Level 0 — Flat: no shadow, no border (hero default).
+     Level 1 — Hairline: 1px solid ink border (pricing chrome).
+     Level 2 — Soft Card: canvas-soft fill against canvas page.
+     The shadows below are restrained lifts for overlays
+     (modals, toasts, dropdowns) only.
+     --------------------------------------------------------- */
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px rgba(32, 21, 21, 0.06);
+  --shadow-md: 0 4px 16px rgba(32, 21, 21, 0.10);
+  --shadow-lg: 0 12px 32px rgba(32, 21, 21, 0.14);
+}

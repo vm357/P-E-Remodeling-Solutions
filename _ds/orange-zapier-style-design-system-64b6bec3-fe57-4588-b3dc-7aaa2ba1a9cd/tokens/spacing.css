@@ -1,0 +1,22 @@
+/* ============================================================
+   Spacing  —  Orange (Zapier-style)
+   Base unit = 4px.
+   ============================================================ */
+
+:root {
+  --space-xxs: 2px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 48px;
+  --space-4xl: 64px;
+
+  /* Semantic spacing */
+  --section-padding-y: var(--space-4xl);  /* band top/bottom */
+  --section-padding-x: var(--space-xl);
+  --card-padding: var(--space-xl);        /* card interior = 24px */
+  --container-max: 1280px;                /* marketing container width */
+}

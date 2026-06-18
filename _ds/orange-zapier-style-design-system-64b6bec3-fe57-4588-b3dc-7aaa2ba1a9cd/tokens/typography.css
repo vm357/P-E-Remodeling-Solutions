@@ -1,0 +1,86 @@
+/* ============================================================
+   Typography  —  Orange (Zapier-style)
+   Display = Mona Sans (Degular Display substitute), weight 500.
+   Everything else = Inter (400 / 500 / 600 / 700).
+   ============================================================ */
+
+:root {
+  /* --- Families --------------------------------------------- */
+  --font-display: "Mona Sans", "Inter", system-ui, sans-serif; /* Degular Display sub */
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* --- Weights ---------------------------------------------- */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ==========================================================
+     Type ramp — size / weight / line-height / tracking
+     Display tokens use --font-display; the rest use --font-body.
+     ========================================================== */
+
+  /* Display (Mona Sans / Degular, weight 500, sentence-case) */
+  --type-display-xl-size: 56px;   --type-display-xl-line: 56px;  --type-display-xl-track: 0;
+  --type-display-lg-size: 48px;   --type-display-lg-line: 48px;  --type-display-lg-track: 0;
+  --type-display-md-size: 32px;   --type-display-md-line: 36px;  --type-display-md-track: 1px;
+
+  /* Inter-rendered sub-displays */
+  --type-display-sub-lg-size: 48px; --type-display-sub-lg-line: 49.92px; --type-display-sub-lg-track: 0;
+  --type-display-sub-md-size: 32px; --type-display-sub-md-line: 40px;    --type-display-sub-md-track: 0;
+  --type-display-sub-sm-size: 24px; --type-display-sub-sm-line: 30px;    --type-display-sub-sm-track: -0.6px;
+  --type-display-xs-size: 20px;     --type-display-xs-line: 25px;        --type-display-xs-track: -0.5px;
+
+  /* Body */
+  --type-body-lg-size: 20px; --type-body-lg-line: 30px; --type-body-lg-track: -0.2px;
+  --type-body-md-size: 18px; --type-body-md-line: 27px; --type-body-md-track: 0;
+  --type-body-sm-size: 16px; --type-body-sm-line: 24px; --type-body-sm-track: 0;
+  --type-caption-size: 14px; --type-caption-line: 21px; --type-caption-track: 0;
+
+  /* Eyebrow (Mona Sans / Degular, UPPERCASE, positive tracking) */
+  --type-eyebrow-size: 14px; --type-eyebrow-line: 14px; --type-eyebrow-track: 1px;
+
+  /* Buttons */
+  --type-button-md-size: 18px;   --type-button-md-line: 27px;   --type-button-md-track: 0;
+  --type-button-sm-size: 14.4px; --type-button-sm-line: 14.4px; --type-button-sm-track: 0.144px;
+}
+
+/* ============================================================
+   Optional utility classes (consumers may use the tokens
+   directly instead).
+   ============================================================ */
+
+.t-display-xl { font-family: var(--font-display); font-weight: var(--weight-medium);
+  font-size: var(--type-display-xl-size); line-height: var(--type-display-xl-line);
+  letter-spacing: var(--type-display-xl-track); color: var(--text-strong); }
+.t-display-lg { font-family: var(--font-display); font-weight: var(--weight-medium);
+  font-size: var(--type-display-lg-size); line-height: var(--type-display-lg-line);
+  letter-spacing: var(--type-display-lg-track); color: var(--text-strong); }
+.t-display-md { font-family: var(--font-display); font-weight: var(--weight-medium);
+  font-size: var(--type-display-md-size); line-height: var(--type-display-md-line);
+  letter-spacing: var(--type-display-md-track); color: var(--text-strong); }
+
+.t-display-sub-lg { font-family: var(--font-body); font-weight: var(--weight-medium);
+  font-size: var(--type-display-sub-lg-size); line-height: var(--type-display-sub-lg-line); color: var(--text-strong); }
+.t-display-sub-md { font-family: var(--font-body); font-weight: var(--weight-regular);
+  font-size: var(--type-display-sub-md-size); line-height: var(--type-display-sub-md-line); color: var(--text-strong); }
+.t-display-sub-sm { font-family: var(--font-body); font-weight: var(--weight-semibold);
+  font-size: var(--type-display-sub-sm-size); line-height: var(--type-display-sub-sm-line);
+  letter-spacing: var(--type-display-sub-sm-track); color: var(--text-strong); }
+.t-display-xs { font-family: var(--font-body); font-weight: var(--weight-bold);
+  font-size: var(--type-display-xs-size); line-height: var(--type-display-xs-line);
+  letter-spacing: var(--type-display-xs-track); color: var(--text-strong); }
+
+.t-body-lg { font-family: var(--font-body); font-weight: var(--weight-regular);
+  font-size: var(--type-body-lg-size); line-height: var(--type-body-lg-line);
+  letter-spacing: var(--type-body-lg-track); color: var(--text-default); }
+.t-body-md { font-family: var(--font-body); font-weight: var(--weight-regular);
+  font-size: var(--type-body-md-size); line-height: var(--type-body-md-line); color: var(--text-default); }
+.t-body-sm { font-family: var(--font-body); font-weight: var(--weight-regular);
+  font-size: var(--type-body-sm-size); line-height: var(--type-body-sm-line); color: var(--text-default); }
+.t-caption { font-family: var(--font-body); font-weight: var(--weight-regular);
+  font-size: var(--type-caption-size); line-height: var(--type-caption-line); color: var(--text-muted); }
+
+.t-eyebrow { font-family: var(--font-display); font-weight: var(--weight-medium);
+  font-size: var(--type-eyebrow-size); line-height: var(--type-eyebrow-line);
+  letter-spacing: var(--type-eyebrow-track); text-transform: uppercase; color: var(--text-strong); }

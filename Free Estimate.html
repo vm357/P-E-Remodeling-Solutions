@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Free Estimate — P&amp;E Remodeling Solutions</title>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="_ds/orange-zapier-style-design-system-64b6bec3-fe57-4588-b3dc-7aaa2ba1a9cd/styles.css">
+<script src="_ds/orange-zapier-style-design-system-64b6bec3-fe57-4588-b3dc-7aaa2ba1a9cd/_ds_bundle.js"></script>
+<script src="image-slot.js"></script>
+<script src="slot-images.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
+  body { margin: 0; background: var(--color-canvas); color: var(--color-ink); -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  a { color: inherit; }
+  ::selection { background: rgba(255,79,0,0.18); }
+
+  .pe-container { max-width: var(--container-max); margin: 0 auto; padding-left: var(--space-xl); padding-right: var(--space-xl); }
+  .pe-section { padding-top: var(--space-4xl); padding-bottom: var(--space-4xl); }
+
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+  @media (max-width: 1040px) {
+    .pe-hide-mobile { display: none !important; }
+  }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" src="icons.jsx"></script>
+  <script type="text/babel" src="NavBar.jsx"></script>
+  <script type="text/babel" src="EstimatePitch.jsx"></script>
+  <script type="text/babel" src="Closing.jsx"></script>
+
+  <script type="text/babel" data-presets="react">
+    function useReveal() {
+      React.useEffect(() => {
+        const els = document.querySelectorAll('.reveal');
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        const above = [];
+        els.forEach((el) => {
+          if (el.getBoundingClientRect().top < vh * 0.92) { above.push(el); }
+          else { io.observe(el); }
+        });
+        // Defer above-the-fold reveals one tick so the transition starts from a
+        // painted hidden state (avoids a same-frame transition trap). setTimeout
+        // also fires in background tabs, where rAF would be paused.
+        const t = setTimeout(() => { above.forEach((el) => el.classList.add('in')); }, 40);
+        return () => { io.disconnect(); clearTimeout(t); };
+      });
+    }
+
+    function mount() {
+      const ns = window.OrangeZapierStyleDesignSystem_64b6be;
+      const need = ['NavBar', 'EstimateIntro', 'Contact', 'EstimateSteps', 'SiteFooter'];
+      if (!ns || need.some((k) => !window[k])) { return setTimeout(mount, 40); }
+      const { NavBar, EstimateIntro, Contact, EstimateSteps, SiteFooter } = window;
+
+      function App() {
+        useReveal();
+        return (
+          <React.Fragment>
+            <NavBar />
+            <main>
+              <EstimateIntro />
+              <Contact />
+              <EstimateSteps />
+            </main>
+            <SiteFooter />
+          </React.Fragment>
+        );
+      }
+      ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    }
+    mount();
+  </script>
+</body>
+</html>

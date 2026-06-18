@@ -1,0 +1,50 @@
+/* ============================================================
+   Colors  —  Orange (Zapier-style)
+   Warm-cream canvas + deep coffee ink + a single saturated orange.
+   Every neutral carries warmth; none are cool grey.
+   ============================================================ */
+
+:root {
+  /* --- Brand / accent --------------------------------------- */
+  --color-primary: #ff4f00;        /* Zapier orange — the single accent */
+  --color-primary-hover: #e64700;  /* darken-on-hover */
+  --color-primary-press: #cc3f00;  /* darken-on-press */
+  --color-on-primary: #fffefb;     /* warm white text on orange/ink */
+
+  /* --- Surface ---------------------------------------------- */
+  --color-canvas: #fffefb;         /* warm off-white page background */
+  --color-canvas-soft: #f8f4f0;    /* cream-tinted soft surface for cards */
+
+  /* --- Text (coffee-ink ladder, warm) ----------------------- */
+  --color-ink: #201515;            /* deep coffee — headings + primary text */
+  --color-ink-soft: #2f2a26;       /* near-black with brown warmth */
+  --color-ink-mid: #36342e;        /* mid-emphasis text */
+  --color-body: #605d52;           /* default body text */
+  --color-body-mid: #939084;       /* secondary body / metadata */
+  --color-mute: #c5c0b1;           /* lowest-priority — fine print */
+
+  /* --- Lines ------------------------------------------------ */
+  --color-border: #201515;         /* hairline chrome = solid ink */
+  --color-border-soft: #e6e1da;    /* soft cream divider */
+
+  /* ==========================================================
+     Semantic aliases — reference these in components.
+     The brand surfaces no separate status palette; validation
+     cues borrow from the ink + orange hierarchy.
+     ========================================================== */
+  --surface-page: var(--color-canvas);
+  --surface-card: var(--color-canvas-soft);
+  --surface-card-flat: var(--color-canvas);
+  --surface-inverse: var(--color-ink);
+
+  --text-strong: var(--color-ink);
+  --text-default: var(--color-body);
+  --text-muted: var(--color-body-mid);
+  --text-faint: var(--color-mute);
+  --text-on-inverse: var(--color-on-primary);
+
+  --accent: var(--color-primary);
+  --accent-hover: var(--color-primary-hover);
+  --accent-press: var(--color-primary-press);
+  --text-on-accent: var(--color-on-primary);
+}
